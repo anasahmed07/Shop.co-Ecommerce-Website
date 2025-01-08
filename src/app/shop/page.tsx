@@ -254,6 +254,9 @@ export default function ShopPage() {
             </button>
           </div>
         </div>
+        <div>
+          
+        </div>
       </div>
     </div>
   )
