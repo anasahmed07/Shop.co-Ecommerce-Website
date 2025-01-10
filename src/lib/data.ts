@@ -2,7 +2,7 @@ import { TypeProduct } from "./utils";
 
 export const products: TypeProduct[] = [
   {
-    id: 1,
+    slug: "gradient-graphic-t-shirt",
     name: "Gradient Graphic T-shirt",
     price: 145,
     rating: 4.5,
@@ -10,7 +10,7 @@ export const products: TypeProduct[] = [
     category: "T-shirts",
   },
   {
-    id: 2,
+    slug: "polo-with-tipping-details",
     name: "Polo with Tipping Details",
     price: 180,
     oldPrice: 260,
@@ -19,7 +19,7 @@ export const products: TypeProduct[] = [
     category: "Shirts",
   },
   {
-    id: 3,
+    slug: "black-striped-t-shirt",
     name: "Black Striped T-shirt",
     price: 120,
     oldPrice: 150,
@@ -28,7 +28,7 @@ export const products: TypeProduct[] = [
     category: "T-shirts",
   },
   {
-    id: 4,
+    slug: "skinny-fit-jeans",
     name: "Skinny Fit Jeans",
     price: 240,
     oldPrice: 260,
@@ -37,7 +37,7 @@ export const products: TypeProduct[] = [
     category: "Jeans",
   },
   {
-    id: 5,
+    slug: "checkered-shirt",
     name: "Checkered Shirt",
     price: 180,
     rating: 4.5,
@@ -45,7 +45,7 @@ export const products: TypeProduct[] = [
     category: "Shirts",
   },
   {
-    id: 6,
+    slug: "sleeve-striped-t-shirt",
     name: "Sleeve Striped T-shirt",
     price: 130,
     oldPrice: 160,
@@ -54,7 +54,7 @@ export const products: TypeProduct[] = [
     category: "T-shirts",
   },
   {
-    id: 7,
+    slug: "vertical-striped-shirt",
     name: "Vertical Striped Shirt",
     price: 212,
     oldPrice: 232,
@@ -63,7 +63,7 @@ export const products: TypeProduct[] = [
     category: "Shirts",
   },
   {
-    id: 8,
+    slug: "courage-graphi-t-shirt",
     name: "Courage Graphic T-shirt",
     price: 145,
     rating: 4.4,
@@ -71,7 +71,7 @@ export const products: TypeProduct[] = [
     category: "T-shirts",
   },
   {
-    id: 9,
+    slug: "loose-fit-bermuda-shorts",
     name: "Loose Fit Bermuda Shorts",
     price: 80,
     oldPrice: 110,
@@ -80,7 +80,7 @@ export const products: TypeProduct[] = [
     category: "Shorts",
   },
   {
-    id: 10,
+    slug: "faded-skinny-jeans",
     name: "Faded Skinny Jeans",
     price: 160,
     rating: 4.3,
@@ -88,7 +88,7 @@ export const products: TypeProduct[] = [
     category: "Pants",
   },
   {
-    id: 11,
+    slug: "one-life-graphic-t-shirt",
     name: "One Life Graphic T-shirt",
     price: 220,
     oldPrice: 250,
@@ -97,7 +97,7 @@ export const products: TypeProduct[] = [
     category: "Jackets",
   },
   {
-    id: 12,
+    slug: "polo-with-contrast-trim",
     name: "Polo With Contrast Trim",
     price: 190,
     rating: 4.2,

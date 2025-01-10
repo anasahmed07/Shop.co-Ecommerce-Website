@@ -3,11 +3,11 @@ import { integralCF } from "@/styles/fonts";
 import Image from "next/image";
 import Link from "next/link";
 
-const Header = () => {
+const HeroSection = () => {
   return (
     <header className="bg-[#F2F0F1] pt-10 md:pt-24 overflow-hidden lg:px-9  mx-auto">
-      <div className="md:max-w-frame mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        <section className="max-w-frame px-4">
+      <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+        <section className="px-4">
           <h2
             className={`${integralCF.className} text-4xl xl:text-[64px] xl:leading-[64px] mb-5 lg:mb-8`}
           >
@@ -19,10 +19,7 @@ const Header = () => {
             style.
           </p>
           <div>
-            <Link
-              href="/shop"
-              className="w-full md:w-52 mb-5 md:mb-12 inline-block text-center bg-black hover:bg-black/80 transition-all text-white px-14 py-4 rounded-full hover:animate-pulse"
-            >
+            <Link href="/shop" className="w-full md:w-52 mb-5 md:mb-12 inline-block text-center bg-black hover:bg-black/80 transition-all text-white px-14 py-4 rounded-full">
               Shop Now
             </Link>
           </div>
@@ -84,4 +81,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeroSection;

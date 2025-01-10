@@ -6,6 +6,7 @@ import { Star, ChevronDown, ChevronLeft, ChevronRight,SlidersVertical ,X } from 
 import { products } from '@/lib/data'
 import Link from 'next/link'
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger,} from "@/components/ui/drawer"
+import { ProductCard } from '@/components/productCard'
 
 
 
@@ -108,9 +109,6 @@ export default function ShopPage() {
             <button className="w-full bg-black text-white py-2 rounded-full">Apply Filters</button>
           </div>
         </DrawerContent>
-
-
-        
       </Drawer>
         </span></h1>
       <div className="flex flex-col md:flex-row gap-8">
@@ -200,28 +198,9 @@ export default function ShopPage() {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {displayedProducts.map((product) => (
-              <Link href={`/shop/${product.id}`}>
-                <div key={product.id} className="border rounded-lg p-4">
-                  <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 mb-4">
-                    <Image src={product.image} alt={product.name} width={300} height={300} className="object-cover object-center" />
-                  </div>
-                  <h3 className="text-sm font-medium">{product.name}</h3>
-                  <div className="flex items-center mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} />
-                    ))}
-                    <span className="ml-1 text-sm text-gray-500">{product.rating}</span>
-                  </div>
-                  <div className="mt-1 flex items-center">
-                    <span className="text-sm font-medium text-gray-900">${product.price}</span>
-                    {product.oldPrice && (
-                      <span className="ml-2 text-sm font-medium text-gray-500 line-through">${product.oldPrice}</span>
-                    )}
-                  </div>
-                </div>
-              </Link>
+              <ProductCard key={product.slug} {...product} />
             ))}
           </div>
 

@@ -15,7 +15,7 @@ export interface CartItem {
   quantity: number;
 }
 export interface TypeProduct {
-  id: number
+  slug: string
   name: string
   price: number
   oldPrice?: number
