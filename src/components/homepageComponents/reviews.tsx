@@ -1,8 +1,9 @@
-
 'use client'
 
-import { ChevronLeft, ChevronRight,ArrowRight , ArrowLeft , Star, Check } from "lucide-react";
+import { ArrowRight , ArrowLeft , Check } from "lucide-react";
 import { useState } from "react";
+import Rating from "@/components/rating";
+import { integralCF, satoshi } from "@/styles/fonts";
 
 export default function ReviewSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,9 +29,9 @@ export default function ReviewSection() {
   };
 
   return (
-    <section className="mb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section className={`${satoshi.className} mb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16`}>
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black">OUR HAPPY CUSTOMERS</h2>
+        <h2 className={`${integralCF.className} text-3xl sm:text-4xl font-extrabold text-black`}>OUR HAPPY CUSTOMERS</h2>
         <div className="flex space-x-2">
           <button onClick={prevSlide} className="p-2 rounded-full bg-white hover:bg-gray-100">
             <ArrowLeft className="h-4 w-4 sm:h-6 sm:w-6" />
@@ -48,15 +49,10 @@ export default function ReviewSection() {
           {customers.map((review, index) => (
             <div key={index} className="w-full md:w-1/3 flex-shrink-0 px-2 md:px-4">
               <div className="bg-white p-4 md:p-6 rounded-3xl border border-gray-200 h-full flex flex-col">
-                <div className="flex items-center mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
+                <Rating rating={review.rating} number={false} />
                 <div className="flex items-center mb-4">
                   <span className="font-semibold text-black mr-2">{review.name}</span>
-                  <span className="h-5 w-5 rounded-full bg-green-500"><Check strokeWidth={"3px"} className="left-0 right-0 translate-x-[1.5px] translate-y-[1.7px] h-3 w-3 md:h-4 md:w-4 text-white " /></span>
-                  
+                  <span className="h-5 w-5 rounded-full bg-green-500"><Check strokeWidth={"3px"} className="text-white left-0 right-0 h-3 w-3 translate-x-1 translate-y-1 md:translate-x-[1.75px] md:translate-y-[1.75px] md:h-4 md:w-4"/></span>
                 </div>
                 <p className="text-gray-600 text-xs md:text-sm flex-grow">{review.comment}</p>
               </div>

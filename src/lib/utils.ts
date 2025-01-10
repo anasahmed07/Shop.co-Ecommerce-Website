@@ -24,12 +24,10 @@ export interface TypeProduct {
   category: string
 }
 
-interface Review {
-  id: number
+export interface Review {
   author: string
   rating: number
   content: string
-  date: string
 }
 
 export interface NewTypeProduct {

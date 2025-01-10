@@ -1,10 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import { Star, ChevronDown, ChevronLeft, ChevronRight,SlidersVertical ,X } from 'lucide-react'
+import { ChevronDown, ChevronLeft, ChevronRight,SlidersVertical ,X } from 'lucide-react'
 import { products } from '@/lib/data'
-import Link from 'next/link'
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger,} from "@/components/ui/drawer"
 import { ProductCard } from '@/components/productCard'
 
@@ -33,6 +31,7 @@ export default function ShopPage() {
 
   const productsPerPage = 9
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage)
+  
   const displayedProducts = sortedProducts.slice(
     (currentPage - 1) * productsPerPage,
     currentPage * productsPerPage
@@ -229,7 +228,7 @@ export default function ShopPage() {
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
             >
-              Next <ChevronRight className="ml-1 h-4 w-4" />
+              Next <ChevronRight className="ml-1 h-4 w-4 disabled:cursor-not-allowed" />
             </button>
           </div>
         </div>
