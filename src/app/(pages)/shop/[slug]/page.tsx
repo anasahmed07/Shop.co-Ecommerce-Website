@@ -75,7 +75,7 @@ const relatedProducts: RelatedProduct[] = [
   { id: 5, name: "Black Striped T-shirt", price: 120, oldPrice: 150, rating: 4.4, image: "/placeholder.svg" },
 ]
 
-export default function ProductDetail() {
+export default function ProductDetail({ params }: { params: { slug: string } }) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
   const [quantity, setQuantity] = useState(1)
