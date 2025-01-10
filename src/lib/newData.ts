@@ -27,8 +27,8 @@ export const nproducts: NewTypeProduct[] = [
         "/images/products/gradient-graphic-t-shirt-alt1.png",
       ],
       reviews: [
-        { id: 1, author: "JohnDoe", rating: 5, content: "Love the style and fit!", date: "2024-10-20" },
-        { id: 2, author: "JaneSmith", rating: 4, content: "Comfortable but could be cheaper.", date: "2024-10-21" },
+        { author: "JohnDoe", rating: 5, content: "Love the style and fit!" },
+        { author: "JaneSmith", rating: 4, content: "Comfortable but could be cheaper."},
       ],
     },
     {
@@ -47,8 +47,8 @@ export const nproducts: NewTypeProduct[] = [
         "/images/products/polo-with-tipping-details-alt1.png",
       ],
       reviews: [
-        { id: 3, author: "AlexC", rating: 5, content: "Perfect fit and high quality.", date: "2024-10-22" },
-        { id: 4, author: "MikeB", rating: 4, content: "Nice shirt but a bit expensive.", date: "2024-10-23" },
+        { author: "AlexC", rating: 5, content: "Perfect fit and high quality." },
+        { author: "MikeB", rating: 4, content: "Nice shirt but a bit expensive." },
       ],
     },
     {
@@ -67,8 +67,8 @@ export const nproducts: NewTypeProduct[] = [
         "/images/products/black-striped-t-shirt-alt1.png",
       ],
       reviews: [
-        { id: 5, author: "SarahM", rating: 4, content: "Looks great, but a bit tight.", date: "2024-10-24" },
-        { id: 6, author: "TomH", rating: 5, content: "Excellent quality for the price.", date: "2024-10-25" },
+        { author: "SarahM", rating: 4, content: "Looks great, but a bit tight." },
+        { author: "TomH", rating: 5, content: "Excellent quality for the price." },
       ],
     },
     {
@@ -87,8 +87,8 @@ export const nproducts: NewTypeProduct[] = [
         "/images/products/skinny-fit-jeans-alt1.png",
       ],
       reviews: [
-        { id: 7, author: "EmilyW", rating: 5, content: "Fits perfectly, very stylish!", date: "2024-10-22" },
-        { id: 8, author: "JakeT", rating: 4, content: "Good quality but runs a bit long.", date: "2024-10-23" },
+        { author: "EmilyW", rating: 5, content: "Fits perfectly, very stylish!" },
+        { author: "JakeT", rating: 4, content: "Good quality but runs a bit long."},
       ],
     },
     {
@@ -107,8 +107,8 @@ export const nproducts: NewTypeProduct[] = [
         "/images/products/checkered-shirt-alt1.png",
       ],
       reviews: [
-        { id: 9, author: "AnnaL", rating: 4, content: "Nice pattern, comfy fabric.", date: "2024-10-22" },
-        { id: 10, author: "ChrisP", rating: 5, content: "Love the style, great value.", date: "2024-10-23" },
+        { author: "AnnaL", rating: 4, content: "Nice pattern, comfy fabric." },
+        { author: "ChrisP", rating: 5, content: "Love the style, great value." },
       ],
     },
     {
@@ -127,8 +127,8 @@ export const nproducts: NewTypeProduct[] = [
         "/images/products/sleeve-striped-t-shirt-alt1.png",
       ],
       reviews: [
-        { id: 11, author: "DanielS", rating: 4, content: "Nice design, fabric could be softer.", date: "2024-10-22" },
-        { id: 12, author: "LindaK", rating: 5, content: "Good quality, fits well.", date: "2024-10-23" },
+        { author: "DanielS", rating: 4, content: "Nice design, fabric could be softer."},
+        { author: "LindaK", rating: 5, content: "Good quality, fits well." },
       ],
     },
   ];
