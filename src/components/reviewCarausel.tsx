@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { ReviewCard } from "./review";
+import ReviewCard from "@/components/review";
 import { Review } from "@/lib/utils";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { integralCF, satoshi } from "@/styles/fonts";

@@ -28,7 +28,7 @@ export default function Newsletter() {
       }
     };
     return (
-        <section className="bg-black text-white py-8 w-[90vw] rounded-3xl px-8 ml-[5vw] -mt-52 lg:-mt-40">
+        <section className="relative bg-black text-white py-8 rounded-3xl px-8 mx-[5vw] -mt-52 lg:-mt-40">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6 lg:gap-48 xl:px-12">
                 <h2 className={`${integralCF.className} text-2xl md:text-3xl font-bold md:w-1/2`}>
                     STAY UPTO DATE ABOUT OUR LATEST OFFERS

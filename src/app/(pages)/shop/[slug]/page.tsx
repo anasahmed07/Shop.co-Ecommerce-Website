@@ -3,14 +3,9 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Star, Minus, Plus, ShoppingCart } from 'lucide-react'
-
-interface Review {
-  id: number
-  author: string
-  rating: number
-  content: string
-  date: string
-}
+import ProductCardGroup from '@/components/productCardGroup'
+import { TypeProduct, Review } from '@/lib/utils'
+import ReviewCard from '@/components/review'
 
 interface Product {
   id: number
@@ -25,15 +20,6 @@ interface Product {
   sizes: string[]
   images: string[]
   reviews: Review[]
-}
-
-interface RelatedProduct {
-  id: number
-  name: string
-  price: number
-  oldPrice: number
-  rating: number
-  image: string
 }
 
 // This would typically come from an API or database
@@ -51,14 +37,12 @@ const product: Product = {
   images: ["/images/products/gradient-graphic-t-shirt.png", "/images/products/black-striped-t-shirt.png", "/images/products/polo-with-tipping-details.png"],
   reviews: [
     {
-      id: 1,
       author: "Samantha D.",
       rating: 5,
       content: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. It's my new favorite shirt. I appreciate the attention to detail. It's definitely worth the purchase!",
       date: "August 14, 2023"
     },
     {
-      id: 2,
       author: "Alex M.",
       rating: 4,
       content: "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Sizing is pretty accurate. Really happy about this purchase!",
@@ -68,14 +52,14 @@ const product: Product = {
   ]
 }
 
-const relatedProducts: RelatedProduct[] = [
-  { id: 2, name: "Polo with Contrast Trims", price: 212, oldPrice: 242, rating: 4.3, image: "/placeholder.svg" },
-  { id: 3, name: "Gradient Graphic T-shirt", price: 145, oldPrice: 165, rating: 4.5, image: "/placeholder.svg" },
-  { id: 4, name: "Polo with Tipping Details", price: 180, oldPrice: 200, rating: 4.8, image: "/placeholder.svg" },
-  { id: 5, name: "Black Striped T-shirt", price: 120, oldPrice: 150, rating: 4.4, image: "/placeholder.svg" },
-]
+let relatedProducts:TypeProduct[] = [
+    { name: 'Vertical Striped Shirt', price: 212, oldPrice: 232, rating: 5, image: "/images/products/vertical-striped.png", slug: "vertical-striped-shirt", category: "t-shirt" },
+    { name: 'Courage Graphic T-shirt', price: 145, rating: 4.3, image: "/images/products/courage-graphic.png", slug: "courage-graphic-t-shirt", category: "t-shirt" },
+    { name: 'Loose Fit Bermuda Shorts', price: 80, rating: 4, image: "/images/products/loose-fit.png", slug: "loose-fit-bermuda-shorts", category: "shorts" },
+    { name: 'Faded Skinny Jeans', price: 210, rating: 4.5, image: "/images/products/faded-skinny-jeans.png", slug: "faded-skinny-jeans", category: "jeans" },
+  ]
 
-export default function ProductDetail({ params }: { params: { slug: string } }) {
+export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
   const [quantity, setQuantity] = useState(1)
@@ -104,7 +88,7 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
               {product.images.map((image, index) => (
                 <button
                   key={index}
-                  className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
+                  className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 "
                   onClick={() => setMainImage(image)}
                 >
                   <span className="sr-only">Image {index + 1}</span>
@@ -278,26 +262,8 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
             <div>
               <h3 className="text-lg font-medium text-gray-900">Customer Reviews</h3>
               <div className="mt-6 space-y-10">
-                {product.reviews.map((review) => (
-                  <div key={review.id} className="flex flex-col sm:flex-row">
-                    <div className="mt-2 sm:mt-0 sm:ml-4">
-                      <h4 className="text-sm font-bold text-gray-900">{review.author}</h4>
-                      <div className="mt-1 flex items-center">
-                        {[0, 1, 2, 3, 4].map((rating) => (
-                          <Star
-                            key={rating}
-                            className={`${
-                              review.rating > rating ? 'text-yellow-400' : 'text-gray-300'
-                            } h-5 w-5 flex-shrink-0`}
-                            aria-hidden="true"
-                          />
-                        ))}
-                      </div>
-                      <p className="sr-only">{review.rating} out of 5 stars</p>
-                      <div className="mt-3 space-y-6 text-sm text-gray-600">{review.content}</div>
-                      <p className="mt-2 text-sm text-gray-500">Posted on {review.date}</p>
-                    </div>
-                  </div>
+                {product.reviews.map((review:Review) => (
+                  <ReviewCard key={review.id} review={review} />
                 ))}
               </div>
             </div>
@@ -317,40 +283,7 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
       </div>
 
       {/* Related products */}
-      <div className="mt-24">
-        <h2 className="text-2xl font-extrabold text-gray-900 mb-6">You might also like</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 xl:gap-x-8">
-          {relatedProducts.map((product) => (
-            <div key={product.id} className="group">
-              <div className="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden sm:aspect-w-2 sm:aspect-h-3">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-center object-cover group-hover:opacity-75"
-                  width={280}
-                  height={320}
-                />
-              </div>
-              <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                <h3>{product.name}</h3>
-                <p>${product.price}</p>
-              </div>
-              <p className="mt-1 text-sm italic text-gray-500">${product.oldPrice}</p>
-              <div className="mt-1">
-                {[0, 1, 2, 3, 4].map((rating) => (
-                  <Star
-                    key={rating}
-                    className={`${
-                      product.rating > rating ? 'text-yellow-400' : 'text-gray-300'
-                    } h-5 w-5 inline-block`}
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <ProductCardGroup products={relatedProducts} title="You Might Also Like" />
     </div>
   )
 }

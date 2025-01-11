@@ -15,7 +15,7 @@ export default function ProductCardGroup(prams: { products: TypeProduct[] , url?
         {(prams.url)? 
           (
             <div className="text-center w-full mt-10 ">
-              <Link href={`/shop#${prams.url}`} className="w-full font-medium text-lg text-black border-gray-500 border-2 h-9  px-9 py-2 rounded-full">
+              <Link href={`/shop#${prams.url}`} className="w-full font-medium text-lg text-black hover:bg-black hover:text-white transition-all duration-300 border-black border-2 h-9  px-9 py-2 rounded-full">
                 View All
               </Link>
             </div>
