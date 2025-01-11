@@ -252,8 +252,7 @@ export default function ProductDetail() {
             <div>
               <h3 className="text-lg font-medium text-gray-900">Product Details</h3>
               <p className="mt-4 text-gray-500">
-                Detailed information about the product would go here. This could include materials,
-                care instructions, sizing details, and other relevant information.
+               
               </p>
             </div>
           )}
@@ -261,9 +260,9 @@ export default function ProductDetail() {
           {activeTab === 'reviews' && (
             <div>
               <h3 className="text-lg font-medium text-gray-900">Customer Reviews</h3>
-              <div className="mt-6 space-y-10">
+              <div className="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-2">
                 {product.reviews.map((review:Review) => (
-                  <ReviewCard key={review.id} review={review} />
+                  <ReviewCard key={review.author} customerReview={review} />
                 ))}
               </div>
             </div>
@@ -273,8 +272,7 @@ export default function ProductDetail() {
             <div>
               <h3 className="text-lg font-medium text-gray-900">Frequently Asked Questions</h3>
               <p className="mt-4 text-gray-500">
-                FAQs about the product would be listed here. This could include questions about sizing,
-                care, shipping, returns, and other common inquiries.
+
               </p>
             
             </div>

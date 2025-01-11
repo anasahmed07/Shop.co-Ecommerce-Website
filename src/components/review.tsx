@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 
 export default function ReviewCard (prams:{ customerReview:Review }) {
     return (
-    <div className="w-full md:w-1/3 flex-shrink-0 px-2 md:px-4">
+    <div className="col-span-1 w-full md:w-1/3 flex-shrink-0 px-2 md:px-4">
         <div className="bg-white p-4 md:p-6 rounded-3xl border border-gray-200 h-full flex flex-col">
           <Rating rating={prams.customerReview.rating} number={false} />
           <div className="flex items-center mb-4">
