@@ -13,7 +13,7 @@ export default function ReviewCard (prams:{ customerReview:Review }) {
             <span className="h-5 w-5 rounded-full bg-green-500"><Check strokeWidth={"3px"} className="text-white left-0 right-0 h-3 w-3 translate-x-1 translate-y-1 md:translate-x-[1.75px] md:translate-y-[1.75px] md:h-4 md:w-4"/></span>
           </div>
           <p className="text-gray-600 text-sm md:text-sm flex-grow">{prams.customerReview.content}</p>
-          <div className="text-sm pt-2 text-gray-800">{prams.customerReview.date}</div>
+          <div className="text-sm pt-2 font-semibold text-gray-700">{prams.customerReview.date}</div>
         </div>
       </div>
     );
