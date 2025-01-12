@@ -1,19 +1,52 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ChevronDown, ChevronLeft, ChevronRight,SlidersVertical ,X } from 'lucide-react'
-import { products } from '@/lib/data'
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger,} from "@/components/ui/drawer"
 import { ProductCard } from '@/components/productCard'
+import { client } from '@/sanity/lib/client'
 
+interface TypeProduct {
+  slug: string;
+  name: string,
+  price: number,
+  rating: number,
+  image: string,
+  category: string,
+  discount: number
+}
 
+async function fetchproducts(): Promise<TypeProduct[]> {
+  let productQuery =`*[_type == "product"]{
+  "slug": slug.current,
+  name,
+  price,
+  rating,
+  discount,
+  "image": images[0].asset->url,
+  "category": category->name
+}
+`
+  const res = await client.fetch(productQuery)
+  const data = await res
+  return data
+}
 
 export default function ShopPage() {
   const [priceRange, setPriceRange] = useState([0, 300])
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [sortBy, setSortBy] = useState('featured')
+  const [products, setproducts] = useState([{slug:"", name:"", price:0, rating:0, image:"", discount:0, category:""}])
 
+  useEffect(() => {
+    const getProducts = async () => {
+      const data = await fetchproducts();
+      setproducts(data);
+    };
+    
+    getProducts();
+  }, []);
 
   const categories = ['All', ...Array.from(new Set(products.map(product => product.category)))];
 
