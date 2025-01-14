@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "createCustomer": "node scripts/exportCustomerData.mjs"
+    "createCustomer": "node scripts/exportCustomerData.mjs",
+    "uploadProducts": "node scripts/exportProducts.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
